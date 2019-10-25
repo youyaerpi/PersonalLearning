@@ -1,5 +1,10 @@
 package com.ecjtu.base;
 
+import com.ecjtu.jdbc.JdbcUtil;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  * @author: xiexiang
  * @create: 2019/07/16 15:58
@@ -7,7 +12,8 @@ package com.ecjtu.base;
 public class Base {
 
 
-    public static void main(String[] args) {
-        System.out.println("hello");
+    public static void main(String[] args) throws SQLException {
+        Connection connection = JdbcUtil.getConnection();
+        System.out.println(connection.getClass().getName());
     }
 }
