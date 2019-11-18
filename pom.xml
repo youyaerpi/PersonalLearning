@@ -16,6 +16,7 @@
     <modules>
         <module>leet-code</module>
         <module>designpatterns</module>
+        <module>tool</module>
     </modules>
     <dependencies>
         <dependency>
