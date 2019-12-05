@@ -17,7 +17,7 @@ public class ListUtils {
      * @param <T>    范型
      * @return 目标集合
      */
-    public static <T> List<List<T>> averageAssign(List<T> source, int n) {
+    public static <T> List<List<T>> averageAssign (List<T> source, int n) {
         if (n <= 0) {
             return Collections.emptyList();
         }
@@ -29,7 +29,7 @@ public class ListUtils {
             if (i + n > sourceSize) {
                 finalNum = sourceSize - i;
             }
-            list.add(source.subList(i, i + finalNum));
+            list.add( source.subList( i, i + finalNum ) );
         }
         return list;
     }
