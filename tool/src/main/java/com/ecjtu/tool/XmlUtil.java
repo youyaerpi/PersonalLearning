@@ -24,34 +24,27 @@ import java.util.Map;
 public class XmlUtil {
 
 
-    public static   Map<String,String> getObjectByXml(String xml, String charset) {
+    public static Map<String, String> getObjectByXml (String xml, String charset) {
         Map<String, String> map = Maps.newHashMap();
         //new SAX解析器
-        SAXReader reader = new SAXReader(false);
+        SAXReader reader = new SAXReader( false );
         //将xml变成字节流
-        InputSource source = new InputSource(new ByteArrayInputStream(xml.getBytes()));
-        source.setEncoding(charset);
+        InputSource source = new InputSource( new ByteArrayInputStream( xml.getBytes() ) );
+        source.setEncoding( charset );
         try {
             //获得模型对象
-            Document document = reader.read(source);
+            Document document = reader.read( source );
             List elements = document.getRootElement().elements();
-            List<Element> elementList= new ArrayList<>(elements.size());
+            List<Element> elementList = new ArrayList<>( elements.size() );
             for (Object element : elements) {
-                elementList.add((Element)element);
+                elementList.add( (Element) element );
             }
-            elementList.forEach(element -> map.put(element.getName(),element.getStringValue()));
+            elementList.forEach( element -> map.put( element.getName(), element.getStringValue() ) );
             return map;
 
         } catch (DocumentException e) {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        String xml="<xml><return_code><![CDATA[FAIL]]></return_code>\n" + "<return_msg><![CDATA[System Error]]></return_msg>\n" + "<err_code><![CDATA[POST_DATA_EMPTY]]></err_code>\n" + "<err_code_des><![CDATA[post data empty.]]></err_code_des>\n" + "</xml>";
-
-        Map<String, String> objectByXml = getObjectByXml(xml, "utf-8");
-        System.out.println(JSONObject.toJSONString(objectByXml));
     }
 }
