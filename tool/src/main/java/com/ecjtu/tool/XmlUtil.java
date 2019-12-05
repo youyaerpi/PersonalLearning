@@ -35,7 +35,6 @@ public class XmlUtil {
             //获得模型对象
             Document document = reader.read(source);
             List elements = document.getRootElement().elements();
-            Element o = (Element)elements.get(0);
             List<Element> elementList= new ArrayList<>(elements.size());
             for (Object element : elements) {
                 elementList.add((Element)element);
