@@ -18,6 +18,7 @@
         <module>designpatterns</module>
         <module>tool</module>
         <module>timer</module>
+        <module>cos</module>
     </modules>
     <dependencies>
         <dependency>
