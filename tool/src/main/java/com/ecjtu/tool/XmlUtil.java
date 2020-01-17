@@ -1,8 +1,7 @@
 package com.ecjtu.tool;
 
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -20,7 +19,7 @@ import java.util.Map;
  * @author xiexiang
  * @date 2019/11/15 5:16 下午
  */
-
+@Slf4j
 public class XmlUtil {
 
 
@@ -43,7 +42,7 @@ public class XmlUtil {
             return map;
 
         } catch (DocumentException e) {
-            e.printStackTrace();
+            log.info( "解析失败:{}" ,e.getMessage());
         }
         return null;
     }
