@@ -8,13 +8,15 @@ import singleton.CacheFactory;
  */
 public class CacheTest {
 
+    static {
+        CacheFactory.registerCacheClass("user",new User());
+    }
+
     @Test
     public void fun() {
-        CacheFactory.registerCacheClass("user",new User());
-        User user = (User)CacheFactory.getCacheClass("user");
-        User user1 = (User)CacheFactory.getCacheClass("user");
+        User user = CacheFactory.getCacheClass("user",User.class );
+        User user1 = CacheFactory.getCacheClass("user",User.class );
         System.out.println(user==user1);
-
 
     }
 }

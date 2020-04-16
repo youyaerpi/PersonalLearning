@@ -20,7 +20,7 @@ public class LazySingleton2 {
 
     }
 
-    public LazySingleton2 getInstance() {
+    public static LazySingleton2 getInstance() {
         if (null == lazySingleton) {
             synchronized (LazySingleton2.class) {
                 if (null == lazySingleton) {

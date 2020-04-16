@@ -12,22 +12,26 @@ import java.util.Map;
 
 public class CacheFactory {
 
-    private static final Map<String, Object> OBJECT_MAP = Maps.newConcurrentMap();
+
+    private static final  Map<String, Object> OBJECT_MAP = Maps.newConcurrentMap();
+
 
     private CacheFactory() {
 
     }
-
-
-    public static void registerCacheClass(String key, Object obj) {
+    public static  <T> void registerCacheClass(String key, T obj) {
         if (OBJECT_MAP.containsKey(key)) {
             return;
         }
         OBJECT_MAP.put(key, obj);
     }
 
-    public static Object getCacheClass(String key) {
-        return  OBJECT_MAP.get(key);
+    public static <T> T getCacheClass(String key, Class<T> clazz) {
+        Object obj = OBJECT_MAP.get(key);
+        if (clazz.isInstance(obj)) {
+            return clazz.cast(obj);
+        }
+        return null;
     }
 
 
