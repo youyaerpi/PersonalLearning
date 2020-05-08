@@ -19,6 +19,7 @@
         <module>tool</module>
         <module>timer</module>
         <module>cos</module>
+        <module>io</module>
     </modules>
     <dependencies>
         <dependency>

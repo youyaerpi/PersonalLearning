@@ -28,7 +28,7 @@ public class StaticInnerClass {
         private static final StaticInnerClass STATIC_INNER_CLASS = new StaticInnerClass();
     }
 
-    public synchronized StaticInnerClass getInstance() {
+    public synchronized  static StaticInnerClass getInstance() {
         return Instance.STATIC_INNER_CLASS;
     }
 
